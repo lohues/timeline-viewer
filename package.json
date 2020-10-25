@@ -14,7 +14,8 @@
     "generate-sw-dev": "npm run generate-sw && npm run checkout-sw",
     "generate-sw-prod": "npm run generate-sw && npm run commit-sw",
     "checkout-sw": "git checkout docs/service-worker.js",
-    "commit-sw": "if [ -n \"$(git status --porcelain -uno)\" ]; then git commit -am \"generate service-worker\"; fi"
+    "commit-sw": "if [ -n \"$(git status --porcelain -uno)\" ]; then git commit -am \"generate service-worker\"; fi",
+    "server-start": "node server/server.js"
   },
   "author": "Paul Irish",
   "license": "Apache-2.0",
@@ -28,7 +29,9 @@
     "pre-push": "^0.1.1",
     "sw-precache": "^5.2.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "pre-push": [
     "generate-sw-prod"
   ],
